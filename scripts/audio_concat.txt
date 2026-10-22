@@ -1,0 +1,8 @@
+file '../public/urubo-bella-flor/images/vo_scene1.mp3'
+file '../public/urubo-bella-flor/images/vo_scene2.mp3'
+file '../public/urubo-bella-flor/images/vo_scene3.mp3'
+file '../public/urubo-bella-flor/images/vo_scene4.mp3'
+file '../public/urubo-bella-flor/images/vo_scene5.mp3'
+file '../public/urubo-bella-flor/images/vo_scene6.mp3'
+file '../public/urubo-bella-flor/images/vo_scene7.mp3'
+file '../public/urubo-bella-flor/images/vo_scene8.mp3'
