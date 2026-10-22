@@ -1,11 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "micrositio-propiedades",
+  "name": "admprop",
   "compatibility_date": "2026-10-19",
+  "pages_build_output_dir": "public",
   "observability": {
     "enabled": true
-  },
-  "assets": {
-    "directory": "public"
   }
 }
