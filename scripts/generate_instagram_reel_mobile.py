@@ -348,7 +348,7 @@ for frame_idx in range(TOTAL_FRAMES):
         base.paste(avatar_roxana, (av_x, av_y), avatar_roxana)
         
         draw_centered_text(d, 375, "Roxana Pozo", f_bold(38), fill=OBSIDIAN)
-        draw_centered_text(d, 425, "Asesora Inmobiliaria Certificada", f_bold(22), fill=GOLD_ACCENT)
+        draw_centered_text(d, 425, "Asesora Inmobiliaria Century 21", f_bold(22), fill=GOLD_ACCENT)
         draw_centered_text(d, 460, "Century 21 Invictus • Equipetrol, Santa Cruz", f_reg(19), fill=CHARCOAL)
         
         card_y = 520
