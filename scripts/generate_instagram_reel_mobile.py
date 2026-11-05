@@ -161,20 +161,20 @@ def make_avatar(img, size=180):
 
 avatar_roxana = make_avatar(img_asesora, 180)
 
-# SCENE TIMINGS (Synchronized to Marcelo Bolivia voiceover parts)
+# SCENE TIMINGS (Synchronized to Andrea Ecuador voiceover parts)
 SCENE_TIMINGS = [
-    (0.00,   8.23),  # 0: Hook
-    (8.23,  15.81),  # 1: Route & Conectividad
-    (15.81, 21.95),  # 2: Entrada & Calles
-    (21.95, 28.86),  # 3: Terreno Real
-    (28.86, 35.03),  # 4: Casa de tus sueños
-    (35.03, 42.57),  # 5: Amenidades
-    (42.57, 50.37),  # 6: Documentación & Precio
-    (50.37, 60.20),  # 7: Cierre C21 & Roxana
+    (0.00,   8.14),  # 0: Hook
+    (8.14,  15.51),  # 1: Route & Conectividad
+    (15.51, 21.65),  # 2: Entrada & Calles
+    (21.65, 28.20),  # 3: Terreno Real
+    (28.20, 34.30),  # 4: Casa de tus sueños
+    (34.30, 41.74),  # 5: Amenidades
+    (41.74, 49.47),  # 6: Documentación & Precio
+    (49.47, 59.30),  # 7: Cierre C21 & Roxana
 ]
 
-TOTAL_SECONDS = 60.2
-TOTAL_FRAMES = int(TOTAL_SECONDS * FPS) # 1806 frames
+TOTAL_SECONDS = 59.3
+TOTAL_FRAMES = int(TOTAL_SECONDS * FPS) # 1779 frames
 
 raw_video_path = "public/urubo-bella-flor/images/temp_reel_mobile.mp4"
 final_video_path = "public/urubo-bella-flor/images/reel-presentacion-instagram.mp4"
