@@ -9,18 +9,18 @@ import re
 
 ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
 
-# Step 1: Master the uploaded audio
-user_raw_audio = r"C:\Users\Administrador\.gemini\antigravity\brain\10c76602-ef3f-4dc2-993b-a3c5185c9e52\.user_uploaded\media_1793808244104_e1181766.mp4"
+# Step 1: Master the new uploaded audio
+user_raw_audio = r"C:\Users\Administrador\.gemini\antigravity\brain\10c76602-ef3f-4dc2-993b-a3c5185c9e52\.user_uploaded\media_1793885613169_8af10888.mp4"
 mastered_audio = "public/urubo-bella-flor/images/user_voice_mastered.mp3"
 
-print("Mastering uploaded human audio...")
+print("Mastering new uploaded human audio...")
 # Audio filter chain:
 # 1. highpass=f=80 (clean low rumble)
 # 2. afftdn=nf=-24 (gentle noise reduction)
-# 3. equalizer (boost presence at 3.2kHz for clarity)
+# 3. equalizer (boost presence at 3.0kHz for clarity)
 # 4. loudnorm (broadcast EBU R128 standard -16 LUFS, perfect for mobile and Instagram)
-af = "highpass=f=80,afftdn=nf=-24,equalizer=f=3200:t=q:w=1.5:g=2.5,loudnorm=I=-16:TP=-1.5:LRA=10"
-cmd = [ffmpeg_exe, "-y", "-i", user_raw_audio, "-af", af, "-c:a", "libmp3lame", "-b:a", "192k", mastered_audio]
+af = "highpass=f=80,afftdn=nf=-24,equalizer=f=3000:t=q:w=1.5:g=2.5,loudnorm=I=-16:TP=-1.5:LRA=10"
+cmd = [ffmpeg_exe, "-y", "-i", user_raw_audio, "-to", "65.5", "-af", af, "-c:a", "libmp3lame", "-b:a", "192k", mastered_audio]
 subprocess.run(cmd, check=True)
 
 # Probe exact duration
@@ -29,7 +29,7 @@ m = re.search(r"Duration:\s*(\d+):(\d+):(\d+\.\d+)", probe.stderr)
 if m:
     TOTAL_SECONDS = int(m.group(1))*3600 + int(m.group(2))*60 + float(m.group(3))
 else:
-    TOTAL_SECONDS = 68.93
+    TOTAL_SECONDS = 65.45
 
 print(f"Total audio duration: {TOTAL_SECONDS:.2f}s")
 
@@ -188,17 +188,16 @@ def make_avatar(img, size=180):
 
 avatar_roxana = make_avatar(img_asesora, 180)
 
-# SCENE TIMINGS (Scaled exactly to human speech duration)
-factor = TOTAL_SECONDS / 60.2
+# SCENE TIMINGS (Matched accurately to actual speech pauses in the new recording)
 SCENE_TIMINGS = [
-    (0.00,             8.23 * factor),  # 0: Hook
-    (8.23 * factor,   15.81 * factor),  # 1: Route & Conectividad
-    (15.81 * factor,  21.95 * factor),  # 2: Entrada & Calles
-    (21.95 * factor,  28.86 * factor),  # 3: Terreno Real
-    (28.86 * factor,  35.03 * factor),  # 4: Casa de tus sueños
-    (35.03 * factor,  42.57 * factor),  # 5: Amenidades
-    (42.57 * factor,  50.37 * factor),  # 6: Documentación & Precio
-    (50.37 * factor,  TOTAL_SECONDS),   # 7: Cierre C21 & Roxana
+    (0.00,   7.73),  # 0: Hook
+    (7.73,  14.98),  # 1: Route & Conectividad
+    (14.98, 22.15),  # 2: Entrada & Calles
+    (22.15, 30.14),  # 3: Terreno Real
+    (30.14, 37.88),  # 4: Casa de tus sueños
+    (37.88, 45.44),  # 5: Amenidades
+    (45.44, 54.32),  # 6: Documentación & Precio
+    (54.32, TOTAL_SECONDS), # 7: Cierre C21 & Roxana
 ]
 
 raw_video_path = "public/urubo-bella-flor/images/temp_reel_human.mp4"
